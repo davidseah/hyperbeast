@@ -73,11 +73,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\fbo.cpp" />
     <ClCompile Include="source\glad.c" />
-    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shader.h" />
     <ClInclude Include="source\camera.h" />
     <ClInclude Include="source\mesh.h" />
     <ClInclude Include="source\model.h" />
