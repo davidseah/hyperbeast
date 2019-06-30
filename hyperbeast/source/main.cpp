@@ -78,7 +78,7 @@ int main()
 
     // load models
     // -----------
-    Model ourModel("nanosuit/nanosuit.obj");
+    Model ourModel("C:/Users/Asus/Desktop/Hyperbeast/hyperbeast/hyperbeast/crysis_nano_suit_2/scene.gltf");
 
 
     // draw in wireframe
