@@ -73,7 +73,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="framework.cpp" />
+    <ClCompile Include="source\framework.cpp" />
     <ClCompile Include="source\fbo.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -86,7 +86,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="source\framework.h" />
     <ClInclude Include="source\camera.h" />
     <ClInclude Include="source\mesh.h" />
     <ClInclude Include="source\model.h" />

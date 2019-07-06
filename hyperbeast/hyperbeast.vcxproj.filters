@@ -36,8 +36,8 @@
     <ClCompile Include="source\light_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="framework.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="source\framework.cpp">
+      <Filter>Source Files\engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +56,8 @@
     <ClInclude Include="source\shader.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
-    <ClInclude Include="framework.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="source\framework.h">
+      <Filter>Source Files\engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
