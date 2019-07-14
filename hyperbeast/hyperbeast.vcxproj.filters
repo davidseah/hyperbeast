@@ -25,6 +25,9 @@
     <Filter Include="Source Files\main\Lighting">
       <UniqueIdentifier>{4d9d1364-810b-4681-98a0-4c1bf715a995}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\system\imgui">
+      <UniqueIdentifier>{c7c1f399-53b1-411d-933c-1cc05bc3670b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\glad.c">
@@ -48,11 +51,26 @@
     <ClCompile Include="source\Materials.cpp">
       <Filter>Source Files\main\Lighting</Filter>
     </ClCompile>
+    <ClCompile Include="..\libraries\imgui\imgui.cpp">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\imgui\imgui_demo.cpp">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\imgui\imgui_draw.cpp">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\imgui\imgui_widgets.cpp">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\imgui\imgui_impl_glfw.cpp">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libraries\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stb_image.h">
-      <Filter>Source Files\system</Filter>
-    </ClInclude>
     <ClInclude Include="source\mesh.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
@@ -68,10 +86,29 @@
     <ClInclude Include="source\framework.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Materials.md">
-      <Filter>Source Files\main\Lighting</Filter>
-    </None>
+    <ClInclude Include="..\libraries\imgui\imconfig.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\imgui\imgui.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\imgui\imgui_internal.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\imgui\imstb_rectpack.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\imgui\imstb_textedit.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\imgui\imstb_truetype.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\imgui\imgui_impl_glfw.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libraries\imgui\imgui_impl_opengl3.h">
+      <Filter>Source Files\system\imgui</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -41,13 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>../include;../libraries/assimp/debug;$(IncludePath)</IncludePath>
-    <LibraryPath>../libraries;../libraries/glfw/debug;../libraries/assimp/debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>../libraries/stb;../libraries;../libraries/glfw/debug;../libraries/assimp/debug;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>../include;../libraries/assimp/release;C:\Users\Asus\Desktop\Hyperbeast\hyperbeast\libraries;$(IncludePath)</IncludePath>
-    <LibraryPath>../libraries;../libraries/glfw/release;../libraries/assimp/release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>../libraries/stb;../libraries;../libraries/glfw/release;../libraries/assimp/release;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
@@ -78,6 +78,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\libraries\imgui\imgui.cpp" />
+    <ClCompile Include="..\libraries\imgui\imgui_demo.cpp" />
+    <ClCompile Include="..\libraries\imgui\imgui_draw.cpp" />
+    <ClCompile Include="..\libraries\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="..\libraries\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="..\libraries\imgui\imgui_widgets.cpp" />
     <ClCompile Include="source\Materials.cpp" />
     <ClCompile Include="source\framework.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -102,6 +108,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\libraries\imgui\imconfig.h" />
+    <ClInclude Include="..\libraries\imgui\imgui.h" />
+    <ClInclude Include="..\libraries\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="..\libraries\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="..\libraries\imgui\imgui_internal.h" />
+    <ClInclude Include="..\libraries\imgui\imstb_rectpack.h" />
+    <ClInclude Include="..\libraries\imgui\imstb_textedit.h" />
+    <ClInclude Include="..\libraries\imgui\imstb_truetype.h" />
     <ClInclude Include="source\framework.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -110,10 +124,6 @@
     <ClInclude Include="source\mesh.h" />
     <ClInclude Include="source\model.h" />
     <ClInclude Include="source\shader.h" />
-    <ClInclude Include="stb_image.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Materials.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

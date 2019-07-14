@@ -1,10 +1,11 @@
 #pragma once
 
-//settings
+//Engine
 #include "camera.h"
+
+#include <imgui/imgui.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
 
 class framework
 {
@@ -30,6 +31,7 @@ class framework
 	bool boWindowClose();
 	void vUpdate();
 	void vProcessInput();
+	void vShutDown();
 
 
 	private:
@@ -37,11 +39,12 @@ class framework
 	void operator=(const framework&);
 	const unsigned int SCR_WIDTH = 800;
 	const unsigned int SCR_HEIGHT = 600;
-
+	const char* glsl_version = "#version 130";
 
 	// timing
 	double deltaTime;
 	double lastFrame;
+	bool show_demo_window;
 
 };
 
