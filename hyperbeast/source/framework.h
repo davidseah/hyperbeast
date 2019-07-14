@@ -45,4 +45,4 @@ class framework
 
 };
 
-#define FW() framework::getInstance()
+#define  HyperbeastSystem framework::getInstance()

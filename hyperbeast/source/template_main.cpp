@@ -13,14 +13,14 @@
 
 int main()
 {
-	FW().vInit();
+	HyperbeastSystem.vInit();
 
-	while(!FW().boWindowClose())
+	while(!HyperbeastSystem.boWindowClose())
 	{
-		FW().vProcessInput();
+		HyperbeastSystem.vProcessInput();
 		glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		FW().vUpdate();
+		HyperbeastSystem.vUpdate();
 	}
 }

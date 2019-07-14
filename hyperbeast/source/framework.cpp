@@ -12,27 +12,27 @@ void framebuffer_size_callback(GLFWwindow* window,
 
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
-	if(FW().boFirstMouse)
+	if(HyperbeastSystem.boFirstMouse)
 	{
 		framework::getInstance().lastX = xpos;
-		FW().lastY = ypos;
-		FW().boFirstMouse = false;
+		HyperbeastSystem.lastY = ypos;
+		HyperbeastSystem.boFirstMouse = false;
 	}
 
-	double xoffset = xpos - FW().lastX;
-	double yoffset = FW().lastY - ypos;
+	double xoffset = xpos - HyperbeastSystem.lastX;
+	double yoffset = HyperbeastSystem.lastY - ypos;
 
-	FW().lastX = xpos;
-	FW().lastY = ypos;
+	HyperbeastSystem.lastX = xpos;
+	HyperbeastSystem.lastY = ypos;
 
-	FW().m_camera.ProcessMouseMovement(static_cast<float>(xoffset), static_cast<float>(yoffset));
+	HyperbeastSystem.m_camera.ProcessMouseMovement(static_cast<float>(xoffset), static_cast<float>(yoffset));
 }
 
 void scroll_callback(GLFWwindow* window,
 					 double xoffset,
 					 double yoffset)
 {
-	FW().m_camera.ProcessMouseScroll(static_cast<float>(yoffset));
+	HyperbeastSystem.m_camera.ProcessMouseScroll(static_cast<float>(yoffset));
 }
 
 

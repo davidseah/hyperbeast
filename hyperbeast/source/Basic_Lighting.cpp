@@ -16,7 +16,7 @@ glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
 int main()
 {
-	FW().vInit();
+	HyperbeastSystem.vInit();
 
 	Shader lightingShader("1.colors.vs", "1.colors.fs");
 	Shader lampShader("1.lamp.vs", "1.lamp.fs");
@@ -93,11 +93,11 @@ int main()
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	while(!FW().boWindowClose())
+	while(!HyperbeastSystem.boWindowClose())
 	{
 		
 
-		FW().vProcessInput();
+		HyperbeastSystem.vProcessInput();
 
 		glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -108,8 +108,8 @@ int main()
 		lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
 
 		// view/projection transformations
-		glm::mat4 projection = glm::perspective(glm::radians(FW().m_camera.Zoom), (float)FW().SCR_WIDTH / (float)FW().SCR_HEIGHT, 0.1f, 100.0f);
-		glm::mat4 view = FW().m_camera.GetViewMatrix();
+		glm::mat4 projection = glm::perspective(glm::radians(HyperbeastSystem.m_camera.Zoom), (float)HyperbeastSystem.SCR_WIDTH / (float)HyperbeastSystem.SCR_HEIGHT, 0.1f, 100.0f);
+		glm::mat4 view = HyperbeastSystem.m_camera.GetViewMatrix();
 		lightingShader.setMat4("projection", projection);
 		lightingShader.setMat4("view", view);
 
@@ -134,7 +134,7 @@ int main()
 		glBindVertexArray(lightVAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		FW().vUpdate();
+		HyperbeastSystem.vUpdate();
 	}
 
 	return 1;

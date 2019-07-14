@@ -22,6 +22,9 @@
     <Filter Include="Source Files\engine">
       <UniqueIdentifier>{4b13bcc3-fef0-4585-a5db-9d407f8e2c44}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\main\Lighting">
+      <UniqueIdentifier>{4d9d1364-810b-4681-98a0-4c1bf715a995}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\glad.c">
@@ -36,11 +39,14 @@
     <ClCompile Include="source\framework.cpp">
       <Filter>Source Files\engine</Filter>
     </ClCompile>
-    <ClCompile Include="source\light_main.cpp">
-      <Filter>Source Files\main</Filter>
-    </ClCompile>
     <ClCompile Include="source\template_main.cpp">
       <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Basic_Lighting.cpp">
+      <Filter>Source Files\main\Lighting</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Materials.cpp">
+      <Filter>Source Files\main\Lighting</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,5 +68,10 @@
     <ClInclude Include="source\framework.h">
       <Filter>Source Files\engine</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Materials.md">
+      <Filter>Source Files\main\Lighting</Filter>
+    </None>
   </ItemGroup>
 </Project>
