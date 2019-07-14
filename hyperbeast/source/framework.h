@@ -1,19 +1,16 @@
 #pragma once
 
-
 //settings
 #include "camera.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
 
 class framework
 {
 	public:
 	
-	bool vInit(const Camera& camera);
+	void vInit();
 
 	static framework& getInstance()
 	{
@@ -24,22 +21,27 @@ class framework
 	GLFWwindow* window;
 	Camera m_camera;
 	bool boFirstMouse;
-	float lastX;
-	float lastY;
+	double lastX;
+	double lastY;
 
 	framework();
 	~framework();
 
-	bool IsWindowClose();
+	bool boWindowClose();
 	void vUpdate();
+	void vProcessInput();
 
 
 	private:
-
 	framework(const framework&);
 	void operator=(const framework&);
-	
-	
+	const unsigned int SCR_WIDTH = 800;
+	const unsigned int SCR_HEIGHT = 600;
+
+
+	// timing
+	double deltaTime;
+	double lastFrame;
 
 };
 

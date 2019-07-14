@@ -19,43 +19,40 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 		FW().boFirstMouse = false;
 	}
 
-	float xoffset = xpos - FW().lastX;
-	float yoffset = FW().lastY - ypos;
+	double xoffset = xpos - FW().lastX;
+	double yoffset = FW().lastY - ypos;
 
 	FW().lastX = xpos;
 	FW().lastY = ypos;
 
-	FW().m_camera.ProcessMouseMovement(xoffset, yoffset);
+	FW().m_camera.ProcessMouseMovement(static_cast<float>(xoffset), static_cast<float>(yoffset));
 }
 
 void scroll_callback(GLFWwindow* window,
 					 double xoffset,
 					 double yoffset)
 {
-	FW().m_camera.ProcessMouseScroll(yoffset);
+	FW().m_camera.ProcessMouseScroll(static_cast<float>(yoffset));
 }
+
+
 
 framework::framework()
-{
-
-}
+	:
+	boFirstMouse(true),
+	lastX(SCR_WIDTH / 2.0f),
+	lastY(SCR_HEIGHT / 2.0f),
+	deltaTime(0.f),
+	lastFrame(0.f),
+	window(nullptr),
+	m_camera(glm::vec3(0.0f, 0.0f, 3.0f))
+{}
 
 framework::~framework()
+{}
+
+void framework::vInit()
 {
-}
-
-bool framework::vInit(const Camera& camera)
-{
-	lastX = SCR_WIDTH / 2.0f;
-	lastY = SCR_HEIGHT / 2.0f;
-	boFirstMouse = true;
-
-	//timing
-	//deltaTime = 0.0f;
-	//lastFrame = 0.0f;
-
-	m_camera = camera;
-
 	//init GLFW
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -69,7 +66,6 @@ bool framework::vInit(const Camera& camera)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
-		return false;
 	}
 
 	glfwMakeContextCurrent(window);
@@ -86,18 +82,45 @@ bool framework::vInit(const Camera& camera)
 	if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
-		return false;
 	}
-
 
 	//configure global opengl state
 	glEnable(GL_DEPTH_TEST);
 }
 
 
-bool framework::IsWindowClose()
+bool framework::boWindowClose()
 {
 	return glfwWindowShouldClose(window);
+}
+
+void framework::vProcessInput()
+{
+	double currentFrame = glfwGetTime();
+	deltaTime = currentFrame - lastFrame;
+	lastFrame = currentFrame;
+
+	if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
+		glfwSetWindowShouldClose(window, true);
+	}
+
+	if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	{
+		m_camera.ProcessKeyboard(FORWARD, deltaTime);
+	}
+	if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+	{
+		m_camera.ProcessKeyboard(BACKWARD, deltaTime);
+	}
+	if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+	{
+		m_camera.ProcessKeyboard(LEFT, deltaTime);
+	}
+	if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+	{
+		m_camera.ProcessKeyboard(RIGHT, deltaTime);
+	}
 }
 
 void framework::vUpdate()
