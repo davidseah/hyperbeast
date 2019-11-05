@@ -33,12 +33,12 @@ class framework
 	void vProcessInput();
 	void vShutDown();
 
+	const unsigned int SCR_WIDTH = 800;
+	const unsigned int SCR_HEIGHT = 600;
 
 	private:
 	framework(const framework&);
 	void operator=(const framework&);
-	const unsigned int SCR_WIDTH = 800;
-	const unsigned int SCR_HEIGHT = 600;
 	const char* glsl_version = "#version 130";
 
 	// timing

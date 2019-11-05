@@ -147,7 +147,7 @@ void framework::vProcessInput()
 void framework::vUpdate()
 {
 	glfwPollEvents();
-
+	#ifdef IMGUI
 	// Start the Dear ImGui frame
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
@@ -162,6 +162,8 @@ void framework::vUpdate()
 	// Rendering
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+	#endif
+
 
 	glfwSwapBuffers(window);
 }
